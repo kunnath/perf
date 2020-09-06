@@ -1,0 +1,50 @@
+---
+execution:
+- concurrency: 2
+  iterations: 20
+  ramp-up: 2s
+  scenario: Thread Group
+scenarios:
+  Thread Group:
+    concurrent-pool-size: 6
+    default-address: /
+    headers:
+      Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+      Accept-Encoding: gzip, deflate, br
+      Accept-Language: en-GB,en-US;q=0.9,en;q=0.8
+      Upgrade-Insecure-Requests: '1'
+      User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/63.0.3239.132 Safari/537.36
+    requests:
+    - follow-redirects: true
+      label: homepage
+      method: GET
+      think-time: 0ms
+      url: https://${BASE_URL_1}en/
+    - follow-redirects: true
+      headers:
+        Referer: https://cloudssky.com/en/
+      label: consulting
+      method: GET
+      think-time: 10179ms
+      url: https://${BASE_URL_1}en/services/consulting/
+    - follow-redirects: true
+      headers:
+        Referer: https://cloudssky.com/en/services/consulting/
+      label: human-cloud
+      method: GET
+      think-time: 27526ms
+      url: https://${BASE_URL_1}en/human-cloud/index.html
+    - follow-redirects: true
+      headers:
+        Referer: https://cloudssky.com/en/human-cloud/index.html
+      label: amazon-web-services
+      method: GET
+      think-time: 20020ms
+      url: https://${BASE_URL_1}en/solutions/amazon-web-services/
+    retrieve-resources: true
+    store-cache: true
+    store-cookie: true
+    use-dns-cache-mgr: true
+    variables:
+      BASE_URL_1: cloudssky.com
+

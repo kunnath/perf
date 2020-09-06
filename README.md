@@ -17,5 +17,4 @@ OpenShift version > 3.5
 
 Please follow the guide "Load Testing Jmeter On Kubernetes" on our medium blog post:
 
-https://goo.gl/mkoX9E
 
